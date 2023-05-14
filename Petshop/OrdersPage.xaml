@@ -1,0 +1,49 @@
+﻿<Page x:Class="Petshop.OrdersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Petshop"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1200"
+      Background="#ff8c00"
+      Title="Заказы">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="377*"/>
+            <RowDefinition Height="73*"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Grid.Row="0" x:Name="DGridOrders" AutoGenerateColumns="False" IsReadOnly="True" Background="#ffb960">
+            <DataGrid.Columns>
+                <DataGridTextColumn FontSize="18" Header="ФИО" Binding="{Binding Clients.SurnameAndInitials}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="18" Header="Дата заказа" Binding="{Binding date_of_order}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="18" Header="Дата получения" Binding="{Binding date_of_issue, TargetNullValue=Не получен}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="18" Header="Адрес доставки" Binding="{Binding delivery_address}" Width="*"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="300">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="ShowProductsButton" Height="50" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,5,0,0" Click="ShowProductsButton_Click">Посмотреть товары в заказе</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="300">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="SetDevileredButton" Height="50" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,5,0,0" Click="SetDevileredButton_Click">Выдать заказ</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="ShowCheckButton" Height="50" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,5,0,0" Click="ShowCheckButton_Click">Посмотреть чек</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="1"></StackPanel>
+    </Grid>
+</Page>

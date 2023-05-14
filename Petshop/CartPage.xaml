@@ -1,0 +1,50 @@
+﻿<Page x:Class="Petshop.CartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Petshop"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1200"
+      Background="#ffb960"
+      Title="CartPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition/>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="90"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.Resources>
+            <DataTemplate x:Key="countBox">
+                <StackPanel x:Name="Count_StackPanel" Height="100" Width="300" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="Minus_Button" Width="60" Height="50" Margin="130 0 0 0" FontSize="30" Click="Minus_Button_Click">-</Button>
+                    <Button x:Name="Plus_Button" Width="60" Height="50" FontSize="30" Click="Plus_Button_Click">+</Button>
+                </StackPanel>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" Height="62" Width="162">Корзина</Label>
+        <DataGrid Grid.Row="1" x:Name="DGridCart" AutoGenerateColumns="False" IsReadOnly="True" Background="#ffb960" Margin="15,0,15,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn FontSize="18" Header="Товар" Binding="{Binding Products.product}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="18" Header="Количество" Binding="{Binding count_of_products}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="18" Header="Цена" Binding="{Binding TotalPrice}" Width="*"></DataGridTextColumn>
+                <DataGridTemplateColumn CellTemplate="{StaticResource countBox}">
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label x:Name="totalPriceLabel" FontSize="35"></Label>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <Button x:Name="GoBack_Button" Height="80" Width="300" VerticalAlignment="Bottom" Click="GoBack_Button_Click">Назад</Button>
+            <Button x:Name="CreateOrder_Button" Height="80" Width="300" VerticalAlignment="Bottom" Click="CreateOrder_Button_Click">Оформить заказ</Button>
+            <Button x:Name="MyOrders_Button" Height="80" Width="300" VerticalAlignment="Bottom" Click="MyOrders_Button_Click">История заказов</Button>
+            <Button x:Name="Delete_Button" Height="80" Width="300" VerticalAlignment="Bottom" Click="Delete_Button_Click">Удалить товар</Button>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,17 @@
+﻿<Window x:Class="Petshop.SignInPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Petshop"
+        mc:Ignorable="d"
+        Title="Вход в ЗооМагазин" Height="550" Width="700"
+        Background="#ffb960">
+    <Grid>
+        <StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Top" Background="#ff8c00">
+            <Button Height="50" Width="200" Click="LoginClick">Авторизация</Button>
+            <Button Height="50" Width="200" Click="RegistrationClick">Зарегистрироваться</Button>
+        </StackPanel>
+        <Frame x:Name="frame" Height="549" Width="700" VerticalAlignment="Top" NavigationUIVisibility="Hidden" Source="LoginPage.xaml" Margin="0,35,0,0"></Frame>
+    </Grid>
+</Window>

@@ -1,0 +1,38 @@
+﻿<Page x:Class="Petshop.ProductsCharacteristicsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Petshop"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1200"
+      Background="#ff8c00"
+      Title="ProductsCharacteristicsPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="DGridCharacteristics" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" Background="#ffb960">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Характеристика" Width="*" Binding="{Binding Characteristics.Characteristic}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Значение" Width="*" Binding="{Binding СharacteristicValue}"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="300">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="EditButton" Height="50" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,5,0,0" Click="EditButton_Click">Редактировать</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="GoBack_Button" Grid.Row="0" Width="300" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Left" Click="GoBack_Button_Click">Назад</Button>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="AddButton" Width="300" Height="60" Click="AddButton_Click">Добавить характеристику</Button>
+            <Button x:Name="DeleteButton"  Width="300" Height="60" Margin="10 0 0 0" Click="DeleteButton_Click">Удалить характеристику</Button>
+        </StackPanel>
+        
+    </Grid>
+</Page>

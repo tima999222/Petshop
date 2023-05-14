@@ -1,0 +1,31 @@
+﻿<Page x:Class="Petshop.ProductsInOrderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Petshop"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1200"
+      Background="#ffb960"
+      Title="ProductsInOrderPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="73*"/>
+            <RowDefinition Height="377*"/>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="GoBack_Button" Width="300" HorizontalAlignment="Left" Click="GoBack_Button_Click">Назад</Button>
+
+        <DataGrid Grid.Row="1" x:Name="DGridProductsInOrder" AutoGenerateColumns="False" IsReadOnly="True" Background="#ffb960">
+            <DataGrid.Columns>
+                <DataGridTextColumn FontSize="18" Header="Товар" Binding="{Binding Products.product}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="18" Header="Количество" Binding="{Binding count_of_products}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="18" Header="Цена за штуку" Binding="{Binding Products.price}" Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label x:Name="totalPriceLabel" FontSize="35"></Label>
+        </StackPanel>
+    </Grid>
+</Page>

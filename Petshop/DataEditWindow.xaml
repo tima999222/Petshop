@@ -1,0 +1,28 @@
+﻿<Window x:Class="Petshop.DataEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Petshop"
+        mc:Ignorable="d"
+        Background="#ffb960"
+        Title="DataEditWindow" Height="720" Width="1200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="680"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Height="50" VerticalAlignment="Top" Background="#ff8c00">
+            <Button x:Name="FirmsButton" Height="50" Width="150" FontSize="14" Click="FirmsButton_Click">Фирмы</Button>
+            <Button x:Name="CategoriesButton" Height="50" Width="150" FontSize="14" Click="CategoriesButton_Click">Категории</Button>
+            <Button x:Name="ProductsButton" Height="50" Width="150" FontSize="14" Click="ProductsButton_Click">Товары</Button>
+            <Button x:Name="OrdersButton" Height="50" Width="150" FontSize="14" Click="OrdersButton_Click">Заказы</Button>
+            <Button x:Name="CharacteristicsButton" Height="50" Width="150" FontSize="14" Click="CharacteristicsButton_Click">Характеристики</Button>
+        </StackPanel>
+
+        <Button x:Name="ExitButton" Height="50" Width="150" FontSize="14" HorizontalAlignment="Right" Click="ExitButton_Click">Выйти</Button>
+
+        <Frame Grid.Row="1" x:Name="frame" Height="600" Width="1200" VerticalAlignment="Top" NavigationUIVisibility="Hidden" Source="FirmsPage.xaml"></Frame>
+    </Grid>
+</Window>

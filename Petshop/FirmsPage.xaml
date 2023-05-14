@@ -1,0 +1,38 @@
+﻿<Page x:Class="Petshop.FirmsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Petshop"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Background="#ff8c00"
+      Title="Firms1">
+
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="377*"/>
+                <RowDefinition Height="73*"/>
+            </Grid.RowDefinitions>
+
+            <DataGrid Grid.Row="0" x:Name="DGridFirms" AutoGenerateColumns="False" IsReadOnly="True" Background="#ffb960">
+                <DataGrid.Columns>
+                    <DataGridTextColumn FontSize="18" Header="Название фирмы" Binding="{Binding firm}" Width="*"></DataGridTextColumn>
+                    <DataGridTemplateColumn Width="300">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="EditButton" Height="50" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,5,0,0" Click="EditButton_Click">Редактировать</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="AddButton" Height="50" Width="150" Margin="30,5,0,0" Click="AddButton_Click">Добавить</Button>
+                <Button x:Name="DeleteButton" Height="50" Width="150" Margin="30,5,0,0" Click="DeleteButton_Click">Удалить</Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
